@@ -1,0 +1,80 @@
+import React from 'react'
+import { Button } from '../ButtonElements';
+import { 
+    InfoContainer,
+    InfoWrapper,
+    InfoRow,
+    Column1,
+    Column2,
+    TextWrapper,
+    TopLine,
+    Heading,
+    Subtitle,
+    BtnWrap, 
+    Img, 
+    ImgWrap,
+    Bullets, 
+} from './AboveFoldElements'
+
+const AboveFold = ({ 
+    lightBg, 
+    id, 
+    imgStart, 
+    topLine, 
+    lightText, 
+    headline, 
+    darkText, 
+    description, 
+    buttonLabel, 
+    img, 
+    alt,
+    primary,
+    dark,
+    dark2,
+    bulletDesc,
+    newBg,
+    infoRow,
+    column1,
+    column2,
+    imgWrap,
+    theImg
+}) => {
+    return (
+        <>
+            <InfoContainer lightBg={lightBg} id='home'>
+                <InfoWrapper newBg={newBg} >
+                    <InfoRow infoRow={infoRow} imgStart={imgStart}>
+                        <Column1 column1={column1} >
+                            <TextWrapper>
+                                <TopLine lightText={lightText}>{topLine}</TopLine>
+                                <Heading lightText={lightText}>{headline}</Heading>
+                                {description === '' ? <Bullets darkText={darkText}>{bulletDesc}</Bullets> : <Subtitle darkText={darkText}>{description}</Subtitle>}
+                                <BtnWrap>
+                                    <Button to="home" 
+                                    smooth={true}
+                                    duration={500}
+                                    spy={true}
+                                    exact="true"
+                                    offset={-80}
+                                    primary={primary ? 1 : 0}
+                                    dark={dark ? 1 : 0}
+                                    dark2={dark2 ?  1: 0}
+                                    >
+                                    {buttonLabel}
+                                    </Button>
+                                </BtnWrap>
+                            </TextWrapper>
+                        </Column1>
+                        <Column2 column2={column2}>
+                            <ImgWrap imgWrap={imgWrap}>
+                                <Img theImg={theImg} src={img} alt={alt} />
+                            </ImgWrap>
+                        </Column2>
+                    </InfoRow>
+                </InfoWrapper>
+            </InfoContainer>
+        </>
+    )
+}
+
+export default AboveFold;
